@@ -4,15 +4,18 @@
     <title>IVT Dome Client</title>
   <script src="js/lodash.min.js"></script>
   <script src="js/aframe-v0.5.0.js"></script>
+  <script src="js/aframe-text-geometry-component.js"></script>
+  <script src="js/platform.js"></script>
+  <script src="js/aframe-always-fullscreen-component.js"></script>
   <script src="js/dat.gui.min.js"></script>
   <script src="js/osc-browser.js"></script>
 </head>
 <body>
-  <a-scene>
-    <a-sphere position="0 0 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-    <a-box position="-5 0 0" rotation="0 45 0" width="1" height="1" depth="1" color="#4CC3D9"></a-box>
-    <a-cylinder position="5 0 0" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-    <a-dodecahedron position="0 0 5" radius="1" color="#FF926B"></a-dodecahedron>
+  <a-scene always-fullscreen> 
+    <a-entity text-geometry="value: N" position="0 0 -5" size="15"></a-entity>
+    <a-entity text-geometry="value: W" position="-5 0 0" rotation="0 90 0" size="15"></a-entity>
+    <a-entity text-geometry="value: E" position="5 0 0" rotation="0 270 0" size="15"></a-entity>
+    <a-entity text-geometry="value: S" position="0 0 5" rotation="0 180 0" size="15"></a-entity>
     <a-ring position="0 5 0" rotation="90 0 0" radius-inner="1" radius-outer="2" color="#FF926B"></a-ring>
     <a-plane position="0 -5 0" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
     <a-sky color="#ECECEC"></a-sky>
@@ -22,6 +25,7 @@
   </a-scene>
 
   <script>
+
   // sends azimuth/altitude values via osc/websocket
   var gui, guid, port, scene;
 

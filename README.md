@@ -1,10 +1,10 @@
-# ivt idc
+# ivt idc for irg
 
-IVT IDC - Interactive Dome Client for the IVT research group
+IVT IDC - Interactive Dome Client for the IVT research group (IRG).
 
 Experimenting with interactive Fulldome and VR.
 
-Web clients send device orientation OSC messages to the server (unidirectional for now).
+Web clients send device orientation data via OSC messages to the server (unidirectional for now).
 
 Client (OSC/Websockets) ->  Server (OSC/udp) -> [OSC receiver]
 
@@ -15,7 +15,7 @@ where
 * `<alt>` is the altitude/elevation angle in degrees [-90..90]
 * `<azi>` is the horizontal angle in degrees [0..360]
 
-The orientation data comes out of A-Frame with the horizontal angle restricted to [0..360].
+The orientation data comes out of [https://aframe.io/](https://aframe.io/) with the horizontal angle restricted to [0..360].
 
 Configure the following objects:
 
@@ -30,5 +30,3 @@ To run:
 * serve the server (e.g. forever)
 
 The server code (basically an example from [osc.js](https://github.com/colinbdclark/osc.js-examples)) is written in ES6/standard.js. The client code is written in ES5. 🙄
-
-Uses A-Frame [https://aframe.io/](https://aframe.io/).
