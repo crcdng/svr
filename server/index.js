@@ -2,10 +2,10 @@
 const os = require("os"), osc = require("osc"), WebSocket = require("ws")
 
 const udp = new osc.UDPPort({
-  localAddress: "192.168.0.13",
-  localPort: 7400,
-  remoteAddress: "192.168.0.13",
-  remotePort: 7500
+  localAddress: "10.188.12.103",  // configure this
+  localPort: 7400,                // configure this
+  remoteAddress: "10.188.20.6",   // configure this
+  remotePort: 10000               // configure this
 })
 
 udp.on("ready", function () {
@@ -17,7 +17,7 @@ udp.on("ready", function () {
 udp.open()
 
 const wss = new WebSocket.Server({
-  port: 12000
+  port: 12000       // configure this
 })
 
 wss.on("connection", function (socket) {

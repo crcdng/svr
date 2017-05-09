@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>A-Frame Show Direction Values in dat.gui</title>
+    <title>IVT Dome Client</title>
   <script src="js/lodash.min.js"></script>
   <script src="js/aframe-v0.5.0.js"></script>
   <script src="js/dat.gui.min.js"></script>
@@ -23,38 +23,41 @@
 
   <script>
   // sends azimuth/altitude values via osc/websocket
+  var gui, guid, port, scene;
+
+  port = new osc.WebSocketPort({
+    url: "ws://10.188.12.103:12000" // configure this
+  });
 
   // from aframe-broadcast-component by Kevin Ngo
-  const guid = function () {
-    let text = '';
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    for (let i = 0; i < 8; i++) {
+  function guid () {
+    var i, text = '';
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    for (i = 0; i < 8; i++) {
       text += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     return text;
   }
-  const port = new osc.WebSocketPort({
-    url: "ws://192.168.0.13:12000"
-  });
 
-  const scene = document.querySelector('a-scene');
-  const gui = new dat.GUI();
+  scene = document.querySelector('a-scene');
+  gui = new dat.GUI();
   if (scene.hasLoaded) { run(); } else { scene.addEventListener('loaded', run); }
 
   // gui shows location and rotation of the player
   function run() {
-    const myGuid = guid();
+    var myGuid = guid();
+    var p = document.querySelector("#player");
+    var pos = p.getAttribute("position");
+    var rot = p.getAttribute("rotation");
+
     port.open();
-    const p = document.querySelector("#player");
-    let pos = p.getAttribute("position");
-    let rot = p.getAttribute("rotation");
 
     gui.add(pos, 'x', -40.0, 40.0).listen();
     gui.add(pos, 'y', -40, 40).listen();
     gui.add(pos, 'z', -40, 40).listen();
 
     gui.add(rot, 'x', -90.0, 90.0).listen();
-    gui.add(rot, 'y', -90, 90).listen();
+    gui.add(rot, 'y', 0, 360).listen();
     gui.add(rot, 'z', -90, 90).listen();
 
     p.addEventListener('componentchanged', function (evt) {
@@ -62,7 +65,7 @@
         if (_.isEqual(evt.detail.oldData, evt.detail.newData)) { return; }
         rot.x = evt.detail.newData.x; // [-90..90]
         rot.y = evt.detail.newData.y % 360;
-        rot.y = rot.y < 0 ? 360 - Math.abs(rot.y) : rot.y//
+        rot.y = rot.y < 0 ? 360 - Math.abs(rot.y) : rot.y // [0..360]
         rot.z = evt.detail.newData.z; // ignore
         port.send({ address: "/rot", args: [myGuid, rot.x, rot.y] });
       }
