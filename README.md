@@ -1,6 +1,6 @@
-# ivt
+# ivt idc
 
-IVT research group
+IVT IDC - Interactive Dome Client for the IVT research group
 
 Experimenting with interactive Fulldome and VR.
 
