@@ -1,0 +1,21 @@
+{
+  "name": "aframe-forward-osc",
+  "version": "1.0.0",
+  "description": "Forwards player orientation via OSC",
+  "main": "index.js",
+  "scripts": {
+    "start": "forever start index.js",
+    "stop": "forever stop index.js",
+    "test": "standard"
+  },
+  "author": "based on code by: Kevin Ngo <me@ngokevin.com>",
+  "license": "MIT",
+  "dependencies": {
+    "forever": "^0.15.3",
+    "osc": "^2.2.0",
+    "ws": "^2.3.1"
+  },
+  "devDependencies": {
+    "standard": "^10.0.2"
+  }
+}
