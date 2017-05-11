@@ -21,12 +21,11 @@ Configure the following objects:
 
 1. client/index.html: `osc.WebSocketPort`: the websocket server ip:port
 2. server/index.js: `WebSocket.Server` the port from step 1
-3. server/index.js: `osc.UDPPort`: the local ip address (localhost/127.0.0.1 might not work) and a local port
-3. server/index.js: `osc.UDPPort`: the remote ip address and port. this is where the data gets forwarded to (Touch Designer, Max/MSP, supercollider, ...).
+3. server/index.js: `osc.UDPPort`: the local ip address (localhost/127.0.0.1 might not work) and port and the remote ip address and port. The latter is to where the data gets forwarded (Touch Designer, Max/MSP, supercollider, ...).
 
 To run:
 
 * serve the client over HTTP/HTTPS (I use live-server for quick development). *This is the ip:port that the phones connect to.*
-* serve the server (e.g. forever)
+* serve the server (e.g. with forever)
 
-The server code (basically an example from [osc.js](https://github.com/colinbdclark/osc.js-examples)) is written in ES6/standard.js. The client code is written in ES5. 🙄
+REM: The server code (basically an example from [osc.js](https://github.com/colinbdclark/osc.js-examples)) is written in ES6/standard.js. The client code is written in ES5. 🙄
