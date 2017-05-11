@@ -26,7 +26,7 @@ Configure the following objects:
 
 To run:
 
-* serve the client over HTTP/HTTPS (I use live-server for quick development)
+* serve the client over HTTP/HTTPS (I use live-server for quick development). *This is the ip:port that the phones connect to.*
 * serve the server (e.g. forever)
 
 The server code (basically an example from [osc.js](https://github.com/colinbdclark/osc.js-examples)) is written in ES6/standard.js. The client code is written in ES5. 🙄
