@@ -2,9 +2,9 @@
 const os = require("os"), osc = require("osc"), WebSocket = require("ws")
 
 const udp = new osc.UDPPort({
-  localAddress: "10.188.12.103",  // configure this
+  localAddress: "192.168.1.4",  // configure this
   localPort: 7400,                // configure this
-  remoteAddress: "10.188.20.6",   // configure this
+  remoteAddress: "192.168.1.2",   // configure this
   remotePort: 10000               // configure this
 })
 

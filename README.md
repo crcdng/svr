@@ -1,8 +1,8 @@
-# ivt idc for irg
+# ivt idc for svr
 
-IVT IDC - Interactive Dome Client for the IVT research group (IRG).
+IVT IDC - Interactive Dome (Immersive Vision Theatre) Client for the shared virtual reality research group (SVR).
 
-Experimenting with interactive Fulldome and VR.
+Experimenting with interactive fulldome and VR.
 
 Web clients send device orientation data via OSC messages to the server (unidirectional for now).
 

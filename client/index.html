@@ -11,7 +11,7 @@
   <script src="js/osc-browser.js"></script>
 </head>
 <body>
-  <a-scene always-fullscreen> 
+  <a-scene always-fullscreen>
     <a-entity text-geometry="value: N" position="0 0 -5" size="15"></a-entity>
     <a-entity text-geometry="value: W" position="-5 0 0" rotation="0 90 0" size="15"></a-entity>
     <a-entity text-geometry="value: E" position="5 0 0" rotation="0 270 0" size="15"></a-entity>
@@ -30,7 +30,7 @@
   var gui, guid, port, scene;
 
   port = new osc.WebSocketPort({
-    url: "ws://10.188.12.103:12000" // configure this
+    url: "ws://192.168.1.4:12000" // configure this
   });
 
   // from aframe-broadcast-component by Kevin Ngo
